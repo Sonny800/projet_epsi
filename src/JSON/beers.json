@@ -1,0 +1,91 @@
+{
+    "beers": [{
+            "id": 1,
+            "name": "Buzz",
+            "tagline": "A Real Bitter Experience",
+            "created_at": "09/2007",
+            "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+            "image_url": "https://images.punkapi.com/v2/keg.png",
+            "price": 4
+        },
+        {
+            "id": 2,
+            "name": "Trashy Blonde",
+            "tagline": "You Know You Shouldn't",
+            "created_at": "04/2008",
+            "description": "A titillating, neurotic, peroxide punk of a Pale Ale",
+            "image_url": "https://images.punkapi.com/v2/2.png",
+            "price": 3.50
+        },
+        {
+            "id": 3,
+            "name": "Berliner Weisse With Yuzu - B-Sides",
+            "tagline": "Japanese Citrus Berliner Weisse",
+            "created_at": "11/2015",
+            "description": "Japanese citrus fruit intensifies the sour nature of this German classic",
+            "image_url": "https://images.punkapi.com/v2/keg.png",
+            "price": 4.2
+        },
+        {
+            "id": 4,
+            "name": "Pilsen Lager",
+            "tagline": "Unleash the Yeast Series",
+            "created_at": "09/2013",
+            "description": "Our Unleash the Yeast series was an epic experiment into the differences in aroma and flavour provided by switching up your yeast",
+            "image_url": "https://images.punkapi.com/v2/4.png",
+            "price": 5.5
+        },
+        {
+            "id": 5,
+            "name": "Avery Brown Dredge",
+            "tagline": "Bloggers' Imperial Pilsner",
+            "created_at": "02/2011",
+            "description": "An Imperial Pilsner in collaboration with beer writers",
+            "image_url": "https://images.punkapi.com/v2/5.png",
+            "price": 6.3
+        },
+        {
+            "id": 6,
+            "name": "Electric India",
+            "tagline": "Vibrant Happy Season",
+            "created_at": "05/2013",
+            "description": "Re-brewed as a spring seasonal, this beer – which appeared originally as an Equity Punk shareholder creation – retains its trademark spicy, fruity edge",
+            "image_url": "https://images.punkapi.com/v2/6.png",
+            "price": 4
+        }, {
+            "id": 7,
+            "name": "AB12",
+            "tagline": "Imperial Black Belgian Ale",
+            "created_at": "07/2012",
+            "description": "An Imperial Black Belgian Ale aged in old Invergordon Scotch whisky barrels with mountains of raspberries",
+            "image_url": "https://images.punkapi.com/v2/7.png",
+            "price": 3.95
+        }, {
+            "id": 8,
+            "name": "Fake Lager",
+            "tagline": "Bohemian Pilsner",
+            "created_at": "03/2013",
+            "description": "Fake is the new black",
+            "image_url": "https://images.punkapi.com/v2/8.png",
+            "price": 4.25
+        }, {
+            "id": 9,
+            "name": "AB07",
+            "tagline": "Whisky Cask-Aged Scotch Ale",
+            "created_at": "03/2010",
+            "description": "Beer perfect for when the rain is coming sideways",
+            "image_url": "https://images.punkapi.com/v2/9.png",
+            "price": 5.60
+        }, {
+            "id": 10,
+            "name": "Bramling X",
+            "tagline": "Single Hop IPA Series - 2011",
+            "created_at": "01/2011",
+            "description": "Good old Bramling Cross, refined",
+            "image_url": "https://images.punkapi.com/v2/10.png",
+            "price": 6.55
+        }
+
+
+    ]
+}
