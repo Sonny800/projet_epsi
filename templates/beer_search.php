@@ -14,10 +14,10 @@ require('../inc/connexion.php');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body id="listBeers">
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,50 +31,62 @@ require('../inc/connexion.php');
                 <li class="nav-item ">
                     <a class="nav-link" href="../index.php">Accueil<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Toutes les bières</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="beers_list.php">Toutes les bières</a>
                 </li>
 
             </ul>
-            <form class="form-inline">
+            <form class="form-inline" method="POST" action="beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière" aria-label="Search">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Valider</button>
             </form>
         </div>
     </nav>
     <!-- FIN NAVBAR -->
+    SEARCH
 
-
-    <div class="container homeTitle">
+    <div class="container">
 
         <div class="card-deck">
-            <div class="card">
+            <div class="card" style="width:25em;">
                 <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
+                <hr>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Bières n°1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card" style="width:25em;">
+                <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
+                <hr>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Bières n°1</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card" style="width:25em;">
+                <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
+                <hr>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <h5 class="card-title">Bières n°1</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
         </div>
 
     </div>
+    <?php
+    // RECUPERER JSON 
+    // get the contents of the JSON file 
+    //$jsonCont = file_get_contents('https://api.punkapi.com/v2/beers');
+
+    //decode JSON data to PHP array
+    //$content = json_decode($jsonCont, true);
+    //var_dump($content);
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
