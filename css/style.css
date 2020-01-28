@@ -1,0 +1,17 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-img-top {
+    height: 400px;
+}
+
+.homeTitle:after {
+    content: '';
+    top: 0; bottom: 0; left: 0; right: 0;
+    display: block;
+    background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('../images/biere.jpg') no-repeat top;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+}
