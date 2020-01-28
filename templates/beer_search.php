@@ -50,7 +50,7 @@ require('../inc/connexion.php');
         <div class="card-deck">
             <div class="card" style="width:25em;">
                 <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-                <hr>
+               
                 <div class="card-body">
                     <h5 class="card-title">Bières n°1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -59,7 +59,7 @@ require('../inc/connexion.php');
             </div>
             <div class="card" style="width:25em;">
                 <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-                <hr>
+               
                 <div class="card-body">
                     <h5 class="card-title">Bières n°1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -68,7 +68,7 @@ require('../inc/connexion.php');
             </div>
             <div class="card" style="width:25em;">
                 <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-                <hr>
+                
                 <div class="card-body">
                     <h5 class="card-title">Bières n°1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
