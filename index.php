@@ -37,17 +37,12 @@ require('inc/connexion.php');
                 </li>
                 
             </ul>
-            <form class="form-inline" method="POST" action="templates/beer_search.php">
-                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Valider</button>
-            </form>
         </div>
     </nav>
     <!-- FIN NAVBAR -->
 
 
     <div class="container-fluid homeTitle">
-        <h1 class="homeTItle_title">Titre</h1>
     </div>
 
     <!-- Optional JavaScript -->

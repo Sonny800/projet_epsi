@@ -1,4 +1,5 @@
 <?php
+ini_get('display_errors');
 $localhost = "localhost";
 $dbname = "epsi_beer";
 $dbuser = "root";

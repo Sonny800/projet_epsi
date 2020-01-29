@@ -44,7 +44,7 @@ require('../inc/connexion.php');
             </ul>
             <form class="form-inline" method="POST" action="beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="search(<?php $_GET['param'] ?>)">Rechercher</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="search(); return false">Rechercher</button>
             </form>
         </div>
     </nav>
@@ -60,12 +60,12 @@ require('../inc/connexion.php');
                 <tr >
                     <th scope="col">Id</th>
                     <th scope="col">Bières</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Tagline</th>
                     <th scope="col">Prix</th>
                     <th scope="col">Voir</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="allBeers">
             <?php foreach ($res as $rs) :     ?>  
                 <tr> 
                     <th scope="row"><?php echo $rs['BEER_ID'] ?></th>
