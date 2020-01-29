@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/* CARD - Search Page */
 .card-deck {
     padding-top: 3em;
 }
@@ -16,6 +17,13 @@ body {
     box-shadow: 0px 6px 15px -1px rgba(0,0,0,0.75);
 }
 
+.card-body {
+    background-color: #000;
+    color: white;
+    margin-top: 1em;
+}
+
+/* ACCUEIL */
 .homeTitle {
     display: flex;
     justify-content: center;
@@ -33,6 +41,7 @@ body {
     position: absolute;
     z-index: -1;
 }
+
 
 #listBeers {
     background-color: #F2f2f2;
