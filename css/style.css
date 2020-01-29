@@ -54,3 +54,13 @@ body {
 .beers_list_title {
     margin-top: 2em;;
 }
+
+.table__img {
+    height: 90px;
+    width: 45px;
+}
+
+.fa-search {
+    text-align: center;
+    vertical-align: middle;
+}

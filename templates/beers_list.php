@@ -16,6 +16,7 @@ $datas = getAllBeers();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -56,8 +57,9 @@ $datas = getAllBeers();
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Bières</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Slogan</th>
                     <th scope="col">Prix</th>
+                    <th scope="col">Miniature</th>
                     <th scope="col">Voir</th>
                 </tr>
             </thead>
@@ -68,30 +70,11 @@ $datas = getAllBeers();
                         <td><?php echo $data['BEER_NAME']; ?></td>
                         <td>Description 1</td>
                         <td>4.50€</td>
-                        <td>4.50€</td>
+                        <td> <img class="table__img" src="<?php echo $data['BEER_PICTURE']; ?>" alt=""> </td>
+                        <td> <i class="fas fa-search"></i> </td>
                     </tr>
                 <?php endforeach; ?>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Bière 2</td>
-                    <td>Desc 2</td>
-                    <td>3.50€</td>
-                    <td>3.50€</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Bière 3</td>
-                    <td>Desc 3</td>
-                    <td>9.99€</td>
-                    <td>9.99€</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Bière 3</td>
-                    <td>Desc 3</td>
-                    <td>9.99€</td>
-                    <td>9.99€</td>
-                </tr>
+                
 
             </tbody>
         </table>
