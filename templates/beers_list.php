@@ -5,7 +5,7 @@ require('../inc/connexion.php');
 <?php
         $sql = "SELECT * FROM beer;";
         $query = $connexion->query($sql);
-        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+        $res = $query->fetchAll();
         ?> 
 
 <!doctype html>

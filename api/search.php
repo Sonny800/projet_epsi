@@ -3,11 +3,11 @@ require("../inc/connexion.php");
 header('Content-Type: application/json');
  $sql = "SELECT * FROM beer;";
         $query = $connexion->query($sql);
-        $res = $query->fetch();
+        $res = $query->fetchAll();
 
 $result = array();
 foreach ($res as $rs) {
-    $result[] = $res;
+$result[] = $res;
 }  
-        echo json_encode(array('result' => $result));
-        ?>
+ $json = json_encode($result);
+var_dump($json);
