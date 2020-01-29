@@ -1,9 +1,18 @@
-<?php 
+<?php
 $localhost = "localhost";
-$dbname = "epsi_projet_php";
+$dbname = "epsi_beer";
 $dbuser = "root";
 $dbpass = "";
 
-$connexion = new PDO('mysql:host='.$localhost.';dbname='.$dbname, $dbuser, $dbpass);
-$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      
+try {
+    $connexion = new PDO('mysql:host=' . $localhost . ';dbname=' . $dbname, $dbuser, $dbpass);
+    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    foreach ($connexion->query("SELECT * FROM beer WHERE BEER_ID = 1") as $row) {
+        print_r($row);
+    }
+    $connexion = null;
+} catch (PDOException  $err) {
+    $errMs = $err->getMessage();
+    throw $errMs;
+    die();
+}

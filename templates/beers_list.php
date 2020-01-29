@@ -101,6 +101,9 @@ require('../inc/connexion.php');
     //decode JSON data to PHP array
     //$content = json_decode($jsonCont, true);
     //var_dump($content);
+
+    $getAllBeers_query = $dbname->prepare("SELECT * FROM beer");
+    $getAllBeers_response = $getAllBeers_query.execute(
     ?>
 
     <!-- Optional JavaScript -->
