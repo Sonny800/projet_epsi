@@ -43,8 +43,7 @@ require('../inc/connexion.php');
         </div>
     </nav>
     <!-- FIN NAVBAR -->
-    SEARCH
-
+    
     <div class="container">
 
         <div class="card-deck">
@@ -57,26 +56,7 @@ require('../inc/connexion.php');
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
-            <div class="card" style="width:25em;">
-                <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-               
-                <div class="card-body">
-                    <h5 class="card-title">Bières n°1</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card" style="width:25em;">
-                <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-                
-                <div class="card-body">
-                    <h5 class="card-title">Bières n°1</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-
+              
     </div>
     <?php
     // RECUPERER JSON 

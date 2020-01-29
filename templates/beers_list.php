@@ -2,6 +2,12 @@
 require('../inc/connexion.php');
 ?>
 
+<?php
+        $sql = "SELECT * FROM beer;";
+        $query = $connexion->query($sql);
+        $res = $query->fetchAll(PDO::FETCH_ASSOC);
+        ?> 
+
 <!doctype html>
 <html lang="fr">
 
@@ -37,8 +43,8 @@ require('../inc/connexion.php');
 
             </ul>
             <form class="form-inline" method="POST" action="beer_search.php">
-                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Valider</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="search(<?php $_GET['param'] ?>)">Rechercher</button>
             </form>
         </div>
     </nav>
@@ -51,8 +57,8 @@ require('../inc/connexion.php');
         </div>
         <table class="table beersTable">
             <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
+                <tr >
+                    <th scope="col">Id</th>
                     <th scope="col">Bières</th>
                     <th scope="col">Description</th>
                     <th scope="col">Prix</th>
@@ -60,55 +66,26 @@ require('../inc/connexion.php');
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Bière 1</td>
-                    <td>Description 1</td>
-                    <td>4.50€</td>
-                    <td>4.50€</td>
+            <?php foreach ($res as $rs) :     ?>  
+                <tr> 
+                    <th scope="row"><?php echo $rs['BEER_ID'] ?></th>
+                    <td><?php echo $rs['BEER_NAME'] ?></td>
+                    <td><?php echo $rs['BEER_TAGLINE'] ?></td>
+                    <td><?php echo $rs['BEER_PRICE'] ?> €</td>
+                    <td><img src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Bière 2</td>
-                    <td>Desc 2</td>
-                    <td>3.50€</td>
-                    <td>3.50€</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Bière 3</td>
-                    <td>Desc 3</td>
-                    <td>9.99€</td>
-                    <td>9.99€</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Bière 3</td>
-                    <td>Desc 3</td>
-                    <td>9.99€</td>
-                    <td>9.99€</td>
-                </tr>
-
+                <?php endforeach; ?>
             </tbody>
         </table>
 
     </div>
-    <?php
-    // RECUPERER JSON 
-    // get the contents of the JSON file 
-    //$jsonCont = file_get_contents('https://api.punkapi.com/v2/beers');
 
-    //decode JSON data to PHP array
-    //$content = json_decode($jsonCont, true);
-    //var_dump($content);
-
-    $getAllBeers_query = $dbname->prepare("SELECT * FROM beer");
-    $getAllBeers_response = $getAllBeers_query.execute(
-    ?>
 
     <!-- Optional JavaScript -->
+        <script src="../js/app.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
