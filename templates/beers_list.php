@@ -1,5 +1,7 @@
 <?php
 require('../inc/connexion.php');
+require('../src/Model/getAllBeers.php');
+$datas = getAllBeers();
 ?>
 
 <!doctype html>
@@ -60,13 +62,15 @@ require('../inc/connexion.php');
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Bière 1</td>
-                    <td>Description 1</td>
-                    <td>4.50€</td>
-                    <td>4.50€</td>
-                </tr>
+                <?php foreach ($datas as $data) : ?>
+                    <tr>
+                        <th scope="row"> <?php echo $data['BEER_ID']; ?></th>
+                        <td><?php echo $data['BEER_NAME']; ?></td>
+                        <td>Description 1</td>
+                        <td>4.50€</td>
+                        <td>4.50€</td>
+                    </tr>
+                <?php endforeach; ?>
                 <tr>
                     <th scope="row">2</th>
                     <td>Bière 2</td>
@@ -96,11 +100,26 @@ require('../inc/connexion.php');
     <?php
     // RECUPERER JSON 
     // get the contents of the JSON file 
-    //$jsonCont = file_get_contents('https://api.punkapi.com/v2/beers');
+    // $jsonCont = file_get_contents('https://api.punkapi.com/v2/beers');
 
-    //decode JSON data to PHP array
-    //$content = json_decode($jsonCont, true);
-    //var_dump($content);
+    // //decode JSON data to PHP array
+    // $content = json_decode($jsonCont, true);
+
+
+    // $sql = "INSERT INTO beer (BEER_ID, BEER_PICTURE, BEER_NAME, BEER_DESCRIPTION) VALUES(:id,:pic,:beerName,:descript)";
+    // $query = $connexion->prepare($sql);
+    // foreach($content as $beer){
+    //     var_dump($beer);
+    //     $beerId = $beer['id'];
+    //     $beerPicture = $beer['image_url'];
+    //     $beerName = $beer['name'];
+    //     $beerDescripion = $beer['description'];
+    //     $query->bindValue(":id", $beerId);
+    //     $query->bindValue(":pic", $beerPicture);
+    //     $query->bindValue(":beerName", $beerName);
+    //     $query->bindValue(":descript", $beerDescripion);
+    //     $query->execute();
+    // }
     ?>
 
     <!-- Optional JavaScript -->

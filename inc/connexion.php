@@ -1,6 +1,6 @@
 <?php 
 $localhost = "localhost";
-$dbname = "epsi_projet_php";
+$dbname = "epsi_beer";
 $dbuser = "root";
 $dbpass = "";
 
