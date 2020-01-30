@@ -1,5 +1,7 @@
 <?php
 require('../inc/connexion.php');
+// RECUPERATION DE L'ID DE LA BIERE POUR AFFICHER LA BONNE
+$idBeer = $_GET['id'];
 ?>
 
 <!doctype html>

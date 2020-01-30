@@ -1,6 +1,9 @@
 <?php
+// CONNEXION BASE DE DONNEES
 require('../inc/connexion.php');
-require('../src/Model/getAllBeers.php');
+// APPEL DU FICHIER QUI APPELLE LES FONCTIONS SQL CONCERNANT LES BIERES
+require('../src/Model/beers.php');
+// RECUPERATION DES BIERES DANS UNE VARIABLE
 $datas = getAllBeers();
 ?>
 
@@ -68,13 +71,13 @@ $datas = getAllBeers();
                     <tr>
                         <th scope="row"> <?php echo $data['BEER_ID']; ?></th>
                         <td><?php echo $data['BEER_NAME']; ?></td>
-                        <td>Description 1</td>
-                        <td>4.50€</td>
+                        <td><?php echo $data['BEER_TAGLINE']; ?></td>
+                        <td><?php echo $data['BEER_PRICE']; ?>€</td>
                         <td> <img class="table__img" src="<?php echo $data['BEER_PICTURE']; ?>" alt=""> </td>
-                        <td> <i class="fas fa-search"></i> </td>
+                        <td> <a href="beer.php?id=<?php echo $data['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
                     </tr>
                 <?php endforeach; ?>
-                
+
 
             </tbody>
         </table>

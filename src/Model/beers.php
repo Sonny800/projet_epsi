@@ -7,3 +7,7 @@ function getAllBeers(){
     $beers = $query->fetchAll(PDO::FETCH_ASSOC);
     return $beers;
 }
+
+function getOneBeer(){
+    require('../inc/connexion.php');
+}
