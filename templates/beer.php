@@ -40,6 +40,9 @@ $beer = getOneBeer($idBeer);
                 <li class="nav-item active">
                     <a class="nav-link" href="beers_list.php">Toutes les bières</a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="templates/beer_add.php">Ajouter une bière</a>
+                </li>
 
             </ul>
             <form class="form-inline">

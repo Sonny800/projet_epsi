@@ -58,18 +58,18 @@ if (isset($_POST['valider'])) {
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../index.php">Accueil<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="templates/beers_list.php">Toutes les bières</a>
+                    <a class="nav-link" href="beers_list.php">Toutes les bières</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="templates/beer_add.php">Ajouter une bière</a>
+                    <a class="nav-link" href="beer_add.php">Ajouter une bière</a>
                 </li>
 
             </ul>
-            <form class="form-inline" method="POST" action="templates/beer_search.php">
+            <form class="form-inline" method="POST" action="beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière" aria-label="Search">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Valider</button>
             </form>

@@ -34,6 +34,9 @@ require('../inc/connexion.php');
                 <li class="nav-item">
                     <a class="nav-link" href="beers_list.php">Toutes les bières</a>
                 </li>
+                <li class="nav-item activ">
+                    <a class="nav-link" href="beer_add.php">Ajouter une bière</a>
+                </li>
 
             </ul>
             <form class="form-inline" method="POST" action="beer_search.php">
@@ -43,14 +46,13 @@ require('../inc/connexion.php');
         </div>
     </nav>
     <!-- FIN NAVBAR -->
-    SEARCH
 
     <div class="container">
 
         <div class="card-deck">
             <div class="card" style="width:25em;">
                 <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-               
+
                 <div class="card-body">
                     <h5 class="card-title">Bières n°1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -59,7 +61,7 @@ require('../inc/connexion.php');
             </div>
             <div class="card" style="width:25em;">
                 <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-               
+
                 <div class="card-body">
                     <h5 class="card-title">Bières n°1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -68,7 +70,7 @@ require('../inc/connexion.php');
             </div>
             <div class="card" style="width:25em;">
                 <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-                
+
                 <div class="card-body">
                     <h5 class="card-title">Bières n°1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
