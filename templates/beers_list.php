@@ -82,7 +82,7 @@ if(isset($_POST['trashBtn'])){
                         <th scope="row"> <?php echo $data['BEER_ID']; ?></th>
                         <td><?php echo $data['BEER_NAME']; ?></td>
                         <td><?php echo $data['BEER_TAGLINE']; ?></td>
-                        <td><?php echo $data['BEER_PRICE']; ?>€</td>
+                        <td><?php echo number_format($data['BEER_PRICE'],2); ?>€</td>
                         <td> <img class="table__img" src="<?php echo $data['BEER_PICTURE']; ?>" alt=""> </td>
                         <td> <a href="beer.php?id=<?php echo $data['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
                         <td>

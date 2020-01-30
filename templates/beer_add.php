@@ -10,7 +10,7 @@ if (isset($_POST['valider'])) {
     $beerTag = $_POST['beer_tagline'];
     $beerPrice = $_POST['beer_price'];
     $beerDesc = $_POST['beer_description'];
-    $url = "https://images.punkapi.com/v2/".$randomNumber.".png";
+    $url = "https://images.punkapi.com/v2/" . $randomNumber . ".png";
 
     if (empty($beerTitle) || empty($beerTag) || empty($beerPrice) || empty($beerDesc)) {
         $errors[] = "Tous les champs doivent être renseignés";
@@ -91,23 +91,23 @@ if (isset($_POST['valider'])) {
                 <form method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nom de la bière</label>
-                        <input name="beer_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrez le nom de la bière">
+                        <input value="<?php echo isset($_POST['beer_name']) ? $_POST['beer_name'] : "" ?>" name="beer_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Entrez le nom de la bière">
                     </div>
 
 
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tagline</label>
-                        <input name="beer_tagline" type="text" class="form-control" id="formGroupExampleInput" placeholder="Entrez la tagline">
+                        <input value="<?php echo isset($_POST['beer_tagline']) ? $_POST['beer_tagline'] : "" ?>" name="beer_tagline" type="text" class="form-control" id="formGroupExampleInput" placeholder="Entrez la tagline">
                     </div>
 
                     <div class="form-group">
                         <label for="formGroupExampleInput">Prix</label>
-                        <input name="beer_price" type="text" class="form-control" id="formGroupExampleInput" placeholder="Entrez le prix">
+                        <input value="<?php echo isset($_POST['beer_price']) ? $_POST['beer_price'] : "" ?>" name="beer_price" type="text" class="form-control" id="formGroupExampleInput" placeholder="Entrez le prix">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea name="beer_description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="beer_description" class="form-control" id="exampleFormControlTextarea1" rows="3"><?php echo isset($_POST['beer_description']) ? $_POST['beer_description'] : "" ?></textarea>
                     </div>
 
                     <button name="valider" type="submit" class="btn btn-primary">Valider</button>
@@ -116,14 +116,14 @@ if (isset($_POST['valider'])) {
         </div>
 
         <div class="row mt-3">
-            <?php if(!empty($errors)) : ?>
-            <?php foreach($errors as $error) : ?>
-            <div class="offset-4 col-4">
-                <div class="alert alert-danger" role="alert">
-                    <?php echo $error;?>
-                </div>
-            </div>
-            <?php endforeach; ?>
+            <?php if (!empty($errors)) : ?>
+                <?php foreach ($errors as $error) : ?>
+                    <div class="offset-4 col-4">
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $error; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             <?php endif; ?>
         </div>
 
