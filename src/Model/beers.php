@@ -32,5 +32,17 @@ function insertBeer($url, $title, $descript, $tagline, $price){
     } else {
         return "La requête n'a pu aboutir";
     }
-    
+}
+
+function deleteBeer($id){
+    require('../inc/connexion.php');
+    $sql = "DELETE FROM beer WHERE BEER_ID = :id";
+    $query = $connexion->prepare($sql);
+    $query->bindValue(":id", $id);
+    if($query->execute()){
+        header('Location: ../../templates/beers_list.php');
+        die;
+    } else {
+        return "La suppression n'a pas pu aboutir";
+    }
 }

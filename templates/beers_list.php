@@ -5,6 +5,12 @@ require('../inc/connexion.php');
 require('../src/Model/beers.php');
 // RECUPERATION DES BIERES DANS UNE VARIABLE
 $datas = getAllBeers();
+
+// GESTION DE LA SUPPRESSION 
+if(isset($_POST['trashBtn'])){
+    $idBeer = $_POST['idBeer'];
+    deleteBeer($idBeer);
+}
 ?>
 
 <!doctype html>
@@ -67,6 +73,7 @@ $datas = getAllBeers();
                     <th scope="col">Prix</th>
                     <th scope="col">Miniature</th>
                     <th scope="col">Voir</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,6 +85,14 @@ $datas = getAllBeers();
                         <td><?php echo $data['BEER_PRICE']; ?>€</td>
                         <td> <img class="table__img" src="<?php echo $data['BEER_PICTURE']; ?>" alt=""> </td>
                         <td> <a href="beer.php?id=<?php echo $data['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
+                        <td>
+                            <form method="POST">
+                                <button type="submit" id="completed-task" class="fabutton"name="trashBtn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <input type="hidden" name="idBeer" value="<?php echo $data['BEER_ID']; ?>">
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
 

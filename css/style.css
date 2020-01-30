@@ -60,10 +60,19 @@ body {
     width: 45px;
 }
 
-.fa-search {
+.fa-search, .fa-trash {
     text-align: center;
     vertical-align: middle;
+    cursor: pointer;
+    color: darkblue;
 }
+
+.fabutton {
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
 
 .one__beer {
     margin: 6em auto;
@@ -73,4 +82,8 @@ body {
 /* ADD BEER */
 .beer__add__title {
     margin-top: 5em;
+}
+
+td,th {
+    text-align: center;
 }
