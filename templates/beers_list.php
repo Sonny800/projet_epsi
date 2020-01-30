@@ -73,7 +73,7 @@ $res = $query->fetchAll();
                         <td><?php echo $rs['BEER_NAME'] ?></td>
                         <td><?php echo $rs['BEER_TAGLINE'] ?></td>
                         <td><?php echo $rs['BEER_PRICE'] ?> €</td>
-                        <td><img src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
+                        <td><img class="table__img" src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

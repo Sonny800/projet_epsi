@@ -10,8 +10,6 @@ search = (query) => {
     myRequest.onreadystatechange = function () {
         if (myRequest.readyState === 4) {
             console.log(myRequest.response);
-            // console.log(result);
-
         }
     }
 }
