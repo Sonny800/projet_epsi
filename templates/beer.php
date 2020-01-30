@@ -1,7 +1,11 @@
 <?php
 require('../inc/connexion.php');
+require('../src/Model/beers.php');
 // RECUPERATION DE L'ID DE LA BIERE POUR AFFICHER LA BONNE
 $idBeer = $_GET['id'];
+// RECUPERATION DE LA BIERE SELON L'ID
+$beer = getOneBeer($idBeer);
+
 ?>
 
 <!doctype html>
@@ -49,18 +53,16 @@ $idBeer = $_GET['id'];
 
     <div class="container">
 
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="https://images.punkapi.com/v2/25.png" alt="Card image cap">
-                <hr>
-                <div class="card-body">
-                    <h5 class="card-title">Bières n°1</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+
+        <div class="card one__beer">
+            <img class="card-img-top" src="<?php echo $beer['BEER_PICTURE']; ?>" alt="Card image cap">
+            <hr>
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $beer['BEER_NAME']; ?></h5>
+                <p class="card-text"><?php echo $beer['BEER_DESCRIPTION']; ?></p>
+                <p class="card-text"><small class="text-muted">#id <?php echo $beer['BEER_ID']; ?></small></p>
             </div>
         </div>
-
     </div>
     <?php
     // RECUPERER JSON 

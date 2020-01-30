@@ -64,3 +64,13 @@ body {
     text-align: center;
     vertical-align: middle;
 }
+
+.one__beer {
+    margin: 6em auto;
+    width: 40%;
+}
+
+/* ADD BEER */
+.beer__add__title {
+    margin-top: 5em;
+}
