@@ -3,10 +3,10 @@ require('../inc/connexion.php');
 ?>
 
 <?php
-        $sql = "SELECT * FROM beer;";
-        $query = $connexion->query($sql);
-        $res = $query->fetchAll();
-        ?> 
+$sql = "SELECT * FROM beer;";
+$query = $connexion->query($sql);
+$res = $query->fetchAll();
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -26,7 +26,7 @@ require('../inc/connexion.php');
 <body id="listBeers">
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">²
         <a class="navbar-brand" href="#">Bières</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,8 @@ require('../inc/connexion.php');
             </ul>
             <form class="form-inline" method="POST" action="beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="search(); return false">Rechercher</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type=" button" onclick="search();return false">Rechercher</button>
+                <!--onclick="search(); return false-->
             </form>
         </div>
     </nav>
@@ -57,7 +58,7 @@ require('../inc/connexion.php');
         </div>
         <table class="table beersTable">
             <thead class="thead-dark">
-                <tr >
+                <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Bières</th>
                     <th scope="col">Tagline</th>
@@ -66,14 +67,14 @@ require('../inc/connexion.php');
                 </tr>
             </thead>
             <tbody id="allBeers">
-            <?php foreach ($res as $rs) :     ?>  
-                <tr> 
-                    <th scope="row"><?php echo $rs['BEER_ID'] ?></th>
-                    <td><?php echo $rs['BEER_NAME'] ?></td>
-                    <td><?php echo $rs['BEER_TAGLINE'] ?></td>
-                    <td><?php echo $rs['BEER_PRICE'] ?> €</td>
-                    <td><img src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
-                </tr>
+                <?php foreach ($res as $rs) :     ?>
+                    <tr>
+                        <th scope="row"><?php echo $rs['BEER_ID'] ?></th>
+                        <td><?php echo $rs['BEER_NAME'] ?></td>
+                        <td><?php echo $rs['BEER_TAGLINE'] ?></td>
+                        <td><?php echo $rs['BEER_PRICE'] ?> €</td>
+                        <td><img src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
@@ -82,7 +83,7 @@ require('../inc/connexion.php');
 
 
     <!-- Optional JavaScript -->
-        <script src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
