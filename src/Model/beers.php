@@ -30,7 +30,7 @@ function insertBeer($url, $title, $descript, $tagline, $price)
     $query->bindValue(":tagline", $tagline);
     $query->bindValue(":price", $price);
     if ($query->execute()) {
-        header('Location: ../../templates/beers_list.php');
+        header('Location: ../templates/beers_list.php');
         die;
     } else {
         return "La requête n'a pu aboutir";
@@ -44,7 +44,7 @@ function deleteBeer($id)
     $query = $connexion->prepare($sql);
     $query->bindValue(":id", $id);
     if ($query->execute()) {
-        header('Location: ../../templates/beers_list.php');
+        header('Location: ../templates/beers_list.php');
         die;
     } else {
         return "La suppression n'a pas pu aboutir";
