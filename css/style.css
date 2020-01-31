@@ -54,3 +54,36 @@ body {
 .beers_list_title {
     margin-top: 2em;;
 }
+
+.table__img {
+    height: 90px;
+    width: 45px;
+}
+
+.fa-search, .fa-trash {
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: darkblue;
+}
+
+.fabutton {
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
+
+.one__beer {
+    margin: 6em auto;
+    width: 40%;
+}
+
+/* ADD BEER */
+.beer__add__title {
+    margin-top: 5em;
+}
+
+td,th {
+    text-align: center;
+}

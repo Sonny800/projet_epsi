@@ -14,13 +14,13 @@ require('inc/connexion.php');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Bières</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,10 @@ require('inc/connexion.php');
                 <li class="nav-item">
                     <a class="nav-link" href="templates/beers_list.php">Toutes les bières</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link" href="templates/beer_add.php">Ajouter une bière</a>
+                </li>
+
             </ul>
             <form class="form-inline" method="POST" action="templates/beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière" aria-label="Search">
@@ -47,7 +50,7 @@ require('inc/connexion.php');
 
 
     <div class="container-fluid homeTitle">
-        <h1 class="homeTItle_title">Titre</h1>
+    
     </div>
 
     <!-- Optional JavaScript -->

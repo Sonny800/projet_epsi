@@ -1,12 +1,23 @@
 <?php
+// CONNEXION BASE DE DONNEES
 require('../inc/connexion.php');
+// APPEL DU FICHIER QUI APPELLE LES FONCTIONS SQL CONCERNANT LES BIERES
+require('../src/Model/beers.php');
+// RECUPERATION DES BIERES DANS UNE VARIABLE
+$datas = getAllBeers();
+
+// GESTION DE LA SUPPRESSION 
+if (isset($_POST['trashBtn'])) {
+    $idBeer = $_POST['idBeer'];
+    deleteBeer($idBeer);
+}
 ?>
 
 <?php
-        $sql = "SELECT * FROM beer;";
-        $query = $connexion->query($sql);
-        $res = $query->fetchAll(PDO::FETCH_ASSOC);
-        ?> 
+$sql = "SELECT * FROM beer;";
+$query = $connexion->query($sql);
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -20,6 +31,7 @@ require('../inc/connexion.php');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -40,6 +52,9 @@ require('../inc/connexion.php');
                 <li class="nav-item active">
                     <a class="nav-link" href="beers_list.php">Toutes les bières</a>
                 </li>
+                <li class="nav-item activ">
+                    <a class="nav-link" href="beer_add.php">Ajouter une bière</a>
+                </li>
 
             </ul>
             <form class="form-inline" method="POST" action="beer_search.php">
@@ -57,32 +72,66 @@ require('../inc/connexion.php');
         </div>
         <table class="table beersTable">
             <thead class="thead-dark">
-                <tr >
+                <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Bières</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Slogan</th>
                     <th scope="col">Prix</th>
+                    <th scope="col">Miniature</th>
                     <th scope="col">Voir</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
             </thead>
             <tbody>
-            <?php foreach ($res as $rs) :     ?>  
-                <tr> 
-                    <th scope="row"><?php echo $rs['BEER_ID'] ?></th>
-                    <td><?php echo $rs['BEER_NAME'] ?></td>
-                    <td><?php echo $rs['BEER_TAGLINE'] ?></td>
-                    <td><?php echo $rs['BEER_PRICE'] ?> €</td>
-                    <td><img src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
-                </tr>
+                <?php foreach ($datas as $data) : ?>
+                    <tr>
+                        <th scope="row"> <?php echo $data['BEER_ID']; ?></th>
+                        <td><?php echo $data['BEER_NAME']; ?></td>
+                        <td><?php echo $data['BEER_TAGLINE']; ?></td>
+                        <td><?php echo number_format($data['BEER_PRICE'], 2); ?>€</td>
+                        <td> <img class="table__img" src="<?php echo $data['BEER_PICTURE']; ?>" alt=""> </td>
+                        <td> <a href="beer.php?id=<?php echo $data['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
+                        <td>
+                            <form method="POST">
+                                <button type="submit" id="completed-task" class="fabutton" name="trashBtn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <input type="hidden" name="idBeer" value="<?php echo $data['BEER_ID']; ?>">
+                            </form>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
 
     </div>
+    <?php
+    // RECUPERER JSON 
+    // get the contents of the JSON file 
+    // $jsonCont = file_get_contents('https://api.punkapi.com/v2/beers');
 
+    // //decode JSON data to PHP array
+    // $content = json_decode($jsonCont, true);
+
+
+    // $sql = "INSERT INTO beer (BEER_ID, BEER_PICTURE, BEER_NAME, BEER_DESCRIPTION) VALUES(:id,:pic,:beerName,:descript)";
+    // $query = $connexion->prepare($sql);
+    // foreach($content as $beer){
+    //     var_dump($beer);
+    //     $beerId = $beer['id'];
+    //     $beerPicture = $beer['image_url'];
+    //     $beerName = $beer['name'];
+    //     $beerDescripion = $beer['description'];
+    //     $query->bindValue(":id", $beerId);
+    //     $query->bindValue(":pic", $beerPicture);
+    //     $query->bindValue(":beerName", $beerName);
+    //     $query->bindValue(":descript", $beerDescripion);
+    //     $query->execute();
+    // }
+    ?>
 
     <!-- Optional JavaScript -->
-        <script src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
