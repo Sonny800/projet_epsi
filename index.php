@@ -50,7 +50,7 @@ require('inc/connexion.php');
 
 
     <div class="container-fluid homeTitle">
-        <h1 class="homeTItle_title">Titre</h1>
+    
     </div>
 
     <!-- Optional JavaScript -->

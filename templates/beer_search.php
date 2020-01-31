@@ -37,7 +37,6 @@ require('../inc/connexion.php');
                 <li class="nav-item activ">
                     <a class="nav-link" href="beer_add.php">Ajouter une bière</a>
                 </li>
-
             </ul>
             <form class="form-inline" method="POST" action="beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière" aria-label="Search">

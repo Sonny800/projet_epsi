@@ -1,6 +1,7 @@
 <?php
 require('../inc/connexion.php');
 require('../src/Model/beers.php');
+
 // AU CLICK SUR LE BOUTON VALIDER : 
 if (isset($_POST['valider'])) {
     // TABLEAU D'ERREUR

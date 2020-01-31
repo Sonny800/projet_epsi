@@ -95,8 +95,6 @@ if(isset($_POST['trashBtn'])){
                         </td>
                     </tr>
                 <?php endforeach; ?>
-
-
             </tbody>
         </table>
 
