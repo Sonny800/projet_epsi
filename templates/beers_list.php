@@ -16,8 +16,10 @@ if (isset($_POST['trashBtn'])) {
 <?php
 $sql = "SELECT * FROM beer;";
 $query = $connexion->query($sql);
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
+$res = $query->fetchAll();
 ?>
+
+
 
 <!doctype html>
 <html lang="fr">
@@ -38,7 +40,7 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
 <body id="listBeers">
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">²
         <a class="navbar-brand" href="#">Bières</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,7 +61,7 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
             </ul>
             <form class="form-inline" method="POST" action="beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" onclick="search(<?php $_GET['param'] ?>)">Rechercher</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type=" button" onclick="search();return false">Rechercher</button>
             </form>
         </div>
     </nav>
@@ -70,18 +72,23 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="row justify-content-center">
             <h2 class="beers_list_title">Toutes les bières</h2>
         </div>
-        <table class="table beersTable">
+        <table class="table beersTable" id="beersTable">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Bières</th>
+<<<<<<< HEAD
                     <th scope="col">Slogan</th>
+=======
+                    <th scope="col">Tagline</th>
+>>>>>>> PDO_GET
                     <th scope="col">Prix</th>
                     <th scope="col">Miniature</th>
                     <th scope="col">Voir</th>
                     <th scope="col">Supprimer</th>
                 </tr>
             </thead>
+<<<<<<< HEAD
             <tbody>
                 <?php foreach ($datas as $data) : ?>
                     <tr>
@@ -99,8 +106,27 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
                                 <input type="hidden" name="idBeer" value="<?php echo $data['BEER_ID']; ?>">
                             </form>
                         </td>
+=======
+            <tbody id="allBeers">
+                <?php foreach ($res as $rs) :     ?>
+                    <tr id="tr">
+                        <th scope="row"><?php echo $rs['BEER_ID'] ?></th>
+                        <td><?php echo $rs['BEER_NAME'] ?></td>
+                        <td><?php echo $rs['BEER_TAGLINE'] ?></td>
+                        <td><?php echo $rs['BEER_PRICE'] ?> €</td>
+                        <td><img class="table__img" src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
+>>>>>>> PDO_GET
                     </tr>
                 <?php endforeach; ?>
+            </tbody>
+            <tbody id="oneBeer">
+                <tr>
+                    <th class="id"></th>
+                    <td class="name"></td>
+                    <td class="tagline"></td>
+                    <td class="price"></td>
+                    <td><img class="table__img" /></td>
+                </tr>
             </tbody>
         </table>
 
