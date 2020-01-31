@@ -11,6 +11,7 @@
  displayText = (value) => {
      if (value == false) {
          let allBeers = document.getElementById("allBeers");
+         let oneBeer = document.getElementById("oneBeer");
          document.getElementById("beersTable").removeChild(allBeers);
      }
 
