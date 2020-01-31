@@ -4,7 +4,7 @@ require('../inc/connexion.php');
 // APPEL DU FICHIER QUI APPELLE LES FONCTIONS SQL CONCERNANT LES BIERES
 require('../src/Model/beers.php');
 // RECUPERATION DES BIERES DANS UNE VARIABLE
-$datas = getAllBeers();
+$res = getAllBeers();
 
 // GESTION DE LA SUPPRESSION 
 if (isset($_POST['trashBtn'])) {
@@ -92,6 +92,15 @@ $res = $query->fetchAll();
                         <td><?php echo $rs['BEER_TAGLINE'] ?></td>
                         <td><?php echo $rs['BEER_PRICE'] ?> €</td>
                         <td><img class="table__img" src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
+                        <td> <a href="beer.php?id=<?php echo $rs['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
+                        <td>
+                            <form method="POST">
+                                <button type="submit" id="completed-task" class="fabutton" name="trashBtn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <input type="hidden" name="idBeer" value="<?php echo $rs['BEER_ID']; ?>">
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
