@@ -4,7 +4,7 @@ require('../inc/connexion.php');
 // APPEL DU FICHIER QUI APPELLE LES FONCTIONS SQL CONCERNANT LES BIERES
 require('../src/Model/beers.php');
 // RECUPERATION DES BIERES DANS UNE VARIABLE
-$datas = getAllBeers();
+$res = getAllBeers();
 
 // GESTION DE LA SUPPRESSION 
 if (isset($_POST['trashBtn'])) {
@@ -77,36 +77,13 @@ $res = $query->fetchAll();
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Bières</th>
-<<<<<<< HEAD
-                    <th scope="col">Slogan</th>
-=======
                     <th scope="col">Tagline</th>
->>>>>>> PDO_GET
                     <th scope="col">Prix</th>
                     <th scope="col">Miniature</th>
                     <th scope="col">Voir</th>
                     <th scope="col">Supprimer</th>
                 </tr>
             </thead>
-<<<<<<< HEAD
-            <tbody>
-                <?php foreach ($datas as $data) : ?>
-                    <tr>
-                        <th scope="row"> <?php echo $data['BEER_ID']; ?></th>
-                        <td><?php echo $data['BEER_NAME']; ?></td>
-                        <td><?php echo $data['BEER_TAGLINE']; ?></td>
-                        <td><?php echo number_format($data['BEER_PRICE'], 2); ?>€</td>
-                        <td> <img class="table__img" src="<?php echo $data['BEER_PICTURE']; ?>" alt=""> </td>
-                        <td> <a href="beer.php?id=<?php echo $data['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
-                        <td>
-                            <form method="POST">
-                                <button type="submit" id="completed-task" class="fabutton" name="trashBtn">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                                <input type="hidden" name="idBeer" value="<?php echo $data['BEER_ID']; ?>">
-                            </form>
-                        </td>
-=======
             <tbody id="allBeers">
                 <?php foreach ($res as $rs) :     ?>
                     <tr id="tr">
@@ -115,7 +92,15 @@ $res = $query->fetchAll();
                         <td><?php echo $rs['BEER_TAGLINE'] ?></td>
                         <td><?php echo $rs['BEER_PRICE'] ?> €</td>
                         <td><img class="table__img" src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
->>>>>>> PDO_GET
+                         <td> <a href="beer.php?id=<?php echo $rs['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
+                        <td>
+                            <form method="POST">
+                                <button type="submit" id="completed-task" class="fabutton" name="trashBtn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <input type="hidden" name="idBeer" value="<?php echo $rs['BEER_ID']; ?>">
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
