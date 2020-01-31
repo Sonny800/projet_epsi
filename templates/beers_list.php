@@ -1,5 +1,16 @@
 <?php
+// CONNEXION BASE DE DONNEES
 require('../inc/connexion.php');
+// APPEL DU FICHIER QUI APPELLE LES FONCTIONS SQL CONCERNANT LES BIERES
+require('../src/Model/beers.php');
+// RECUPERATION DES BIERES DANS UNE VARIABLE
+$datas = getAllBeers();
+
+// GESTION DE LA SUPPRESSION 
+if(isset($_POST['trashBtn'])){
+    $idBeer = $_POST['idBeer'];
+    deleteBeer($idBeer);
+}
 ?>
 
 <!doctype html>
@@ -14,6 +25,7 @@ require('../inc/connexion.php');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -33,6 +45,9 @@ require('../inc/connexion.php');
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="beers_list.php">Toutes les bières</a>
+                </li>
+                <li class="nav-item activ">
+                    <a class="nav-link" href="beer_add.php">Ajouter une bière</a>
                 </li>
 
             </ul>
@@ -54,41 +69,32 @@ require('../inc/connexion.php');
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Bières</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Slogan</th>
                     <th scope="col">Prix</th>
+                    <th scope="col">Miniature</th>
                     <th scope="col">Voir</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Bière 1</td>
-                    <td>Description 1</td>
-                    <td>4.50€</td>
-                    <td>4.50€</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Bière 2</td>
-                    <td>Desc 2</td>
-                    <td>3.50€</td>
-                    <td>3.50€</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Bière 3</td>
-                    <td>Desc 3</td>
-                    <td>9.99€</td>
-                    <td>9.99€</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Bière 3</td>
-                    <td>Desc 3</td>
-                    <td>9.99€</td>
-                    <td>9.99€</td>
-                </tr>
-
+                <?php foreach ($datas as $data) : ?>
+                    <tr>
+                        <th scope="row"> <?php echo $data['BEER_ID']; ?></th>
+                        <td><?php echo $data['BEER_NAME']; ?></td>
+                        <td><?php echo $data['BEER_TAGLINE']; ?></td>
+                        <td><?php echo number_format($data['BEER_PRICE'],2); ?>€</td>
+                        <td> <img class="table__img" src="<?php echo $data['BEER_PICTURE']; ?>" alt=""> </td>
+                        <td> <a href="beer.php?id=<?php echo $data['BEER_ID']; ?>"> <i class="fas fa-search"></i> </a></td>
+                        <td>
+                            <form method="POST">
+                                <button type="submit" id="completed-task" class="fabutton"name="trashBtn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <input type="hidden" name="idBeer" value="<?php echo $data['BEER_ID']; ?>">
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
 
@@ -96,14 +102,26 @@ require('../inc/connexion.php');
     <?php
     // RECUPERER JSON 
     // get the contents of the JSON file 
-    //$jsonCont = file_get_contents('https://api.punkapi.com/v2/beers');
+    // $jsonCont = file_get_contents('https://api.punkapi.com/v2/beers');
 
-    //decode JSON data to PHP array
-    //$content = json_decode($jsonCont, true);
-    //var_dump($content);
+    // //decode JSON data to PHP array
+    // $content = json_decode($jsonCont, true);
 
-    $getAllBeers_query = $dbname->prepare("SELECT * FROM beer");
-    $getAllBeers_response = $getAllBeers_query.execute(
+
+    // $sql = "INSERT INTO beer (BEER_ID, BEER_PICTURE, BEER_NAME, BEER_DESCRIPTION) VALUES(:id,:pic,:beerName,:descript)";
+    // $query = $connexion->prepare($sql);
+    // foreach($content as $beer){
+    //     var_dump($beer);
+    //     $beerId = $beer['id'];
+    //     $beerPicture = $beer['image_url'];
+    //     $beerName = $beer['name'];
+    //     $beerDescripion = $beer['description'];
+    //     $query->bindValue(":id", $beerId);
+    //     $query->bindValue(":pic", $beerPicture);
+    //     $query->bindValue(":beerName", $beerName);
+    //     $query->bindValue(":descript", $beerDescripion);
+    //     $query->execute();
+    // }
     ?>
 
     <!-- Optional JavaScript -->
