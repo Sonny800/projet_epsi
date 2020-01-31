@@ -8,6 +8,8 @@ $query = $connexion->query($sql);
 $res = $query->fetchAll();
 ?>
 
+
+
 <!doctype html>
 <html lang="fr">
 
@@ -45,7 +47,6 @@ $res = $query->fetchAll();
             <form class="form-inline" method="POST" action="beer_search.php">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une bière">
                 <button class="btn btn-outline-info my-2 my-sm-0" type=" button" onclick="search();return false">Rechercher</button>
-                <!--onclick="search(); return false-->
             </form>
         </div>
     </nav>
@@ -56,7 +57,7 @@ $res = $query->fetchAll();
         <div class="row justify-content-center">
             <h2 class="beers_list_title">Toutes les bières</h2>
         </div>
-        <table class="table beersTable">
+        <table class="table beersTable" id="beersTable">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Id</th>
@@ -68,7 +69,7 @@ $res = $query->fetchAll();
             </thead>
             <tbody id="allBeers">
                 <?php foreach ($res as $rs) :     ?>
-                    <tr>
+                    <tr id="tr">
                         <th scope="row"><?php echo $rs['BEER_ID'] ?></th>
                         <td><?php echo $rs['BEER_NAME'] ?></td>
                         <td><?php echo $rs['BEER_TAGLINE'] ?></td>
@@ -76,6 +77,15 @@ $res = $query->fetchAll();
                         <td><img class="table__img" src=" <?php echo $rs['BEER_PICTURE'] ?>" /></td>
                     </tr>
                 <?php endforeach; ?>
+            </tbody>
+            <tbody id="oneBeer">
+                <tr>
+                    <th class="id"></th>
+                    <td class="name"></td>
+                    <td class="tagline"></td>
+                    <td class="price"></td>
+                    <td><img class="table__img" /></td>
+                </tr>
             </tbody>
         </table>
 
